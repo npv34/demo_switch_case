@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Money App</title>
+</head>
+<body>
+    <input type="number" id="input-money">
+    <select id="currency-select">
+        <option value="VND">VND</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option> 
+    </select>
+    <button onclick="convert()">Convert</button>
+    <p id="output-money"></p>
+</body>
+<script>
+    function convert() {
+        // input 
+        let inputMoney = +document.getElementById("input-money").value;
+        let currencySelect = document.getElementById("currency-select").value;
+        // thuat toan -> luyen tap -> thuc hanh nhieu
+        let totalMoney = 0;
+
+        // c1 su dung if_elseif_else
+        /*
+            if(currencySelect == "VND") {
+                totalMoney = 23400 * inputMoney;
+            }else if(currencySelect == "EUR") {
+                totalMoney = 0.95 * inputMoney;
+            }else if(currencySelect == "GBP") {
+                totalMoney = 0.78 * inputMoney;
+            } else {
+                totalMoney = 151.39 * inputMoney;
+            }
+        */
+
+        // c2 su dung switch_case
+        // ? bo break o 1 case nao do? -> tiep tuc chay den khi gap break khong quan tam dk dung sai
+        switch(currencySelect) {
+            case "VND":
+                totalMoney = 23400 * inputMoney;
+                break;
+            case "EUR":
+                totalMoney = 0.95 * inputMoney;
+                break;
+            case "GBP":
+                totalMoney = 0.78 * inputMoney;
+                break;
+            default:
+                totalMoney = 151.39 * inputMoney;
+                break;
+        }
+
+
+        //output
+        let message = inputMoney + " USD = " + totalMoney + " " + currencySelect;
+        document.getElementById("output-money").innerText = message;
+    }
+
+
+
+</script>
+</html>
